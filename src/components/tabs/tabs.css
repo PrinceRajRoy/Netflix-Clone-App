@@ -1,0 +1,99 @@
+/* Tab No 1 */
+.tab-icon-door {
+    width: 2.1825rem;
+    height: 2.1825rem;
+    fill: var(--main-grey);
+}
+
+/* Tab No 2 */
+.tab-icon-devices {
+    width: 9.6875rem;
+    height: 9.6875rem;
+    fill: var(--main-grey);
+}
+
+/* Tab No 3 */
+.tab-icon-price {
+    width: 4.375rem;
+    height: 4.375rem;
+    fill: var(--main-grey);
+}
+
+/* Tab Paragraph */
+.tab-para {
+    margin-top: -5.3125rem;
+    margin-bottom: 1.875rem;
+}
+
+/* Tabs */
+.tabs {
+    padding-top: 1rem;
+}
+
+.tab-list {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    list-style-type: none;
+    color: var(--main-grey);
+    margin: 0 12%;
+}
+
+.tab-list > li:hover {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.tab-list > li:hover svg {
+    fill: var(--text-color);
+    cursor: pointer;
+}
+
+/* Active Tab */
+.active {
+    border-bottom: 4px solid var(--main-red);
+    color: var(--text-color);
+}
+
+.active svg {
+    fill: var(--text-color);
+}
+
+.tab-list {
+    padding: unset;
+}
+
+/* Media Query */
+@media (max-width: 960px) {
+    .tab-icon-door {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .tab-icon-devices {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .tab-icon-price {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .lg-tab-text {
+        display: none;
+    }
+
+    .md-tab-text {
+        margin-bottom: 0.4rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .md-tab-text {
+        display: none;
+    }
+}
