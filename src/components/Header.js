@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../svg/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../components/Button';
 
@@ -13,8 +13,10 @@ class Header extends Component {
         return (
             <HeaderComponent className="Header">
                 <div className="header-top">
-                    <Logo src={logo} alt="logo" />
-                    <NavLink to="/" className="signIn-btn" >Sign In</NavLink>
+                    <Link to='/'>
+                        <Logo src={logo} alt="logo" />
+                    </Link>
+                    <NavLink to="/login" className="signIn-btn" >Sign In</NavLink>
                 </div>
                 <div className="header-content">
                     <MainTitle>See what's next.</MainTitle>
