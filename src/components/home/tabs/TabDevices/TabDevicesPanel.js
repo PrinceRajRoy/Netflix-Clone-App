@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../Button'
+import { Button } from '../../../Button'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query';
 
@@ -13,17 +13,17 @@ export default function TabDevicesPanel() {
                 </div>
                 <div className="tab-bottom-content">
                     <div>
-                        <img src={require('../../../images/tab-tv.png')} alt={'Watch On Television'} style={{width: '18.75rem'}}/>
+                        <img src={require('../../../../images/tab-tv.png')} alt={'Watch On Television'} style={{width: '18.75rem'}}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>
                     <div>
-                        <img src={require('../../../images/tab-tablet.png')} alt={'Watch On Tablet'} style={{width: '18.75rem', paddingTop: '0.625rem'}}/>
+                        <img src={require('../../../../images/tab-tablet.png')} alt={'Watch On Tablet'} style={{width: '18.75rem', paddingTop: '0.625rem'}}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>
                     <div>
-                        <img src={require('../../../images/tab-macbook.png')} alt={'Watch On Mac'} style={{width: '18.75rem', paddingTop: '0.625rem', paddingBottom: '0.625rem'}}/>
+                        <img src={require('../../../../images/tab-macbook.png')} alt={'Watch On Mac'} style={{width: '18.75rem', paddingTop: '0.625rem', paddingBottom: '0.625rem'}}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>

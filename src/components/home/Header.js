@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../svg/logo.svg';
+import logo from '../../svg/logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button } from '../components/Button';
+import { Button } from '../Button';
 
 import { Icon } from 'react-icons-kit';
 import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_right'
@@ -22,7 +22,7 @@ class Header extends Component {
                     <MainTitle>See what's next.</MainTitle>
                     <MainSubtitle>WATCH ANYWHERE. CANCEL ANYTIME.</MainSubtitle>
                     <Button className='try-it-now' primary>
-                        Try it Now
+                        <Link to='/plan'>Try it Now</Link>
                         <Icon size={37} icon={ic_keyboard_arrow_right}/>
                     </Button>
                 </div>

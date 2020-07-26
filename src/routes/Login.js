@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 import { generateMedia } from 'styled-media-query';
 
 class Login extends Component {
+
+    componentDidMount() {
+        window.scroll(0, 0);
+    }
+    
     render() {
         return (
             <LoginContainer className='login-container'>

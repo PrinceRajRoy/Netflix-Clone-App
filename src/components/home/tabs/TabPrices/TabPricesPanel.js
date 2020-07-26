@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../Button';
+import { Button } from '../../../Button';
 import {cross} from 'react-icons-kit/icomoon/cross';
 import {checkmark} from 'react-icons-kit/icomoon/checkmark';
 import Icon from 'react-icons-kit';

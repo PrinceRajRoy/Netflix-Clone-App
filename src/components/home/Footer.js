@@ -123,7 +123,7 @@ const FooterContainer = styled.div`
     .lang-toggle {
         margin-left: 15%;
         position: absolute;
-        margin-top: -4.125rem;
+        margin-top: -3.7rem;
     }
 
     .lang-toggle ul {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../Button';
+import { Button } from '../../../Button';
 import { generateMedia } from 'styled-media-query';
 
 export default function TabDoorPanel() {
@@ -12,7 +12,7 @@ export default function TabDoorPanel() {
                         <span>If you decide Netflix isn't for you - no problem. No commitment. Cancel online anytime.</span><br/>
                         <Button style={{marginTop: '2rem'}}>try it now</Button>
                     </div>
-                    <img src={require('../../../images/tab-1-pic.png')} alt={"Tab Door Panel"} />
+                    <img src={require('../../../../images/tab-1-pic.png')} alt={"Tab Door Panel"} />
                 </div>
             </div>
         </TabContentContainer>

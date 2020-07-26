@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import TabDoor from './tabs/TabDoor';
-import '../components/tabs/tabs.css';
+import './tabs/tabs.css';
 import TabDevices from './tabs/TabDevices';
 import TabPrices from './tabs/TabPrices';
 import TabDoorPanel from './tabs/TabDoor/TabDoorPanel';
