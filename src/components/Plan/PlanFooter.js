@@ -6,6 +6,12 @@ import { iosWorld } from 'react-icons-kit/ionicons/iosWorld';
 import { arrowSortedDown } from 'react-icons-kit/typicons/arrowSortedDown';
 
 class PlanFooter extends Component {
+    state = {
+        showLang: false
+    };
+
+    toggleLang = () => this.setState({showLang: !this.state.showLang});
+
     render() {
         return (
             <PlanFooterContainer>
@@ -27,6 +33,16 @@ class PlanFooter extends Component {
                             <li><Link to='/plan'>Privacy</Link></li>
                         </ul>
                     </div>
+                    {this.state.showLang && (
+                    <div className='lang-toggle'>
+                        <ul>
+                            <li>English</li>
+                        </ul>
+                        <ul>
+                            <li>Hindi</li>
+                        </ul>
+                    </div>
+                    )}
                     <div className="language-btn" onClick={this.toggleLang}>
                         <Icon icon={iosWorld} size={20}></Icon>
                         <span style={{paddingTop: '1px', paddingLeft: '10px'}}>English</span>
@@ -63,12 +79,26 @@ const PlanFooterContainer = styled.div`
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         width: 75%;
+        margin-top: 1rem;
     }
 
     ul {
         list-style: none;
         font-size: 13px;
         line-height: 2.5;
+    }
+    
+    .lang-toggle {
+        position: absolute;
+        margin-top: -4rem;
+    }
+
+    .lang-toggle ul {
+        background: #fff;
+        width: 13rem;
+        border: 1px solid #333;
+        text-align: center;
+        margin: 0;
     }
 
     .language-btn {

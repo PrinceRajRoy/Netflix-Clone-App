@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.caefa425.chunk.css",
+    "main.js": "/static/js/main.5bd0b0b3.chunk.js",
+    "main.js.map": "/static/js/main.5bd0b0b3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1d9393ad.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1d9393ad.js.map",
+    "static/js/2.fcadf3cc.chunk.js": "/static/js/2.fcadf3cc.chunk.js",
+    "static/js/2.fcadf3cc.chunk.js.map": "/static/js/2.fcadf3cc.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.202da5119d8686ac829bde1201d0d658.js": "/precache-manifest.202da5119d8686ac829bde1201d0d658.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.caefa425.chunk.css.map": "/static/css/main.caefa425.chunk.css.map",
+    "static/js/2.fcadf3cc.chunk.js.LICENSE.txt": "/static/js/2.fcadf3cc.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/bg.77205fd2.jpg",
+    "static/media/logo.svg": "/static/media/logo.35f3a5ae.svg",
+    "static/media/tab-1-pic.png": "/static/media/tab-1-pic.fab25bc3.png",
+    "static/media/tab-macbook.png": "/static/media/tab-macbook.66c7c1fb.png",
+    "static/media/tab-tablet.png": "/static/media/tab-tablet.dc986d81.png",
+    "static/media/tab-tv.png": "/static/media/tab-tv.9f91203b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d9393ad.js",
+    "static/js/2.fcadf3cc.chunk.js",
+    "static/css/main.caefa425.chunk.css",
+    "static/js/main.5bd0b0b3.chunk.js"
+  ]
+}

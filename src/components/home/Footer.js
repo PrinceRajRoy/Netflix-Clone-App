@@ -16,7 +16,9 @@ class Footer extends Component {
     render() {
         return (
             <FooterContainer>
+                {/* Footer Top */}
                 <span style={{marginLeft: '15%'}}>Questions? Call <Link to='tel:000-800-040-1843'>000-800-040-1843</Link></span>
+                {/* Footer Middle Container */}
                 <div className='footer-content'>
                     <ul>
                         <li><Link to='/'>FAQ</Link></li>
@@ -54,6 +56,7 @@ class Footer extends Component {
                     </ul>
                 </div>
                 )}
+                {/* Footer Bottom Toggle */}
                 <div className="language-btn" onClick={this.toggleLang}>
                     <Icon icon={iosWorld} size={20}></Icon>
                     <span style={{paddingTop: '1px'}}>English</span>
