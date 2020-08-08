@@ -52,7 +52,8 @@ export default LoginFooter;
 
 // Media Query
 const customBreakpoint = generateMedia({
-    md: '960px'
+    md: '960px',
+    sm: '740px'
 });
 
 const FooterContainer = styled.div`
@@ -64,6 +65,9 @@ const FooterContainer = styled.div`
     color: #757575;
     z-index: 1;
     position: relative;
+    ${customBreakpoint.lessThan('sm')`
+        margin-top: 0;
+    `}
 
     ul {
         list-style-type: none;

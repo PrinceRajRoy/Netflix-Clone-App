@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import PlanFooter from'../components/Plan/PlanFooter';
+import { generateMedia } from 'styled-media-query';
 
 class Plan extends Component {
 
@@ -42,6 +43,12 @@ class Plan extends Component {
 }
 
 export default Plan;
+
+const customBreakpoint = generateMedia({
+    md: '960px',
+    sm: '740px',
+    xs: '600px'
+});
 
 const PlanContainer = styled.div`
     
@@ -125,6 +132,13 @@ const Logo = styled.img`
     height: 3.5rem;
     position: absolute;
     top: 49%;
-    left: 8%;
+    left: 9%;
     transform: translate(-50%, -50%);
+    ${customBreakpoint.lessThan('md')`
+        left: 100px;
+    `}
+    ${customBreakpoint.lessThan('xs')`
+        height: 1.8rem;
+        left: 80px;
+    `}
 `;

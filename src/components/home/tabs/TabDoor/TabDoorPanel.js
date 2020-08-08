@@ -22,7 +22,8 @@ export default function TabDoorPanel() {
 // Media Query
 const customBreakpoint = generateMedia({
     xl: '1350px',
-    md: '960px'
+    md: '960px',
+    sm: '650px'
 });
 
 
@@ -30,7 +31,7 @@ const TabContentContainer = styled.div`
     background: var(--main-deep-dark);
 
     img {
-        width: 31.875rem;
+        width: 80%;
     }
 
     .para-text {
@@ -56,6 +57,9 @@ const TabContentContainer = styled.div`
             img { 
                 margin: auto;
             }
+        `}
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 1rem;
         `}
     }
 `;

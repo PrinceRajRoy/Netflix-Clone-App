@@ -20,7 +20,7 @@ function Row({ title, endpoint, netflixOriginals }) {
 
     const opts = {
         height: '400',
-        width: '100%',
+        width: '98%',
         playerVars: {
             autoplay: 1
         }
@@ -58,6 +58,7 @@ function Row({ title, endpoint, netflixOriginals }) {
                 <div className='posters'>
                     {/* Poster Row */}
                     {content.map(el => (
+                        (netflixOriginals && el.poster_path) || el.backdrop_path ?
                         <div 
                             key={el.id} 
                             className='poster-div'
@@ -98,6 +99,7 @@ function Row({ title, endpoint, netflixOriginals }) {
                                 </div>
                             }
                         </div>
+                        : null
                     ))}
                 </div>
                 {trailerId && <YouTube videoId={trailerId} opts={opts} />}
@@ -136,6 +138,9 @@ const RowContainer = styled.div`
             .hover-items {
                 display: block;
                 transition: display 2s ease-in;
+            }
+            > img {
+                src: url();
             }
         }
         &:hover .poster-div:hover ~ .poster-div {

@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { baseAPI, BASE_IMAGE_URL } from '../../utilities/baseAPI';
 import requests from '../../utilities/request';
+import { generateMedia } from 'styled-media-query';
 
 function LandingPoster() {
 
-    const [content, setContent] = useState([]);
+    const [content, setContent] = useState({});
 
     useEffect(() => {
 
@@ -19,9 +20,9 @@ function LandingPoster() {
     }, []);
 
     const minimizeDesc = (desc, n) => desc?.length > n ? desc.substr(0, n-1) + '...' : desc;
-
+    
     return (
-        <LandingPosterContainer poster={ BASE_IMAGE_URL + content?.backdrop_path || content?.poster_path }>
+        <LandingPosterContainer poster={ content?.backdrop_path || content?.poster_path }>
             <div className="landing-contents">
                 <h1 className='landing-title'>
                     {content?.title || content?.name || content?.original_name}
@@ -41,8 +42,16 @@ function LandingPoster() {
 
 export default LandingPoster;
 
+const customBreakpoint = generateMedia({
+    xl: '1350px',
+    lg: '1150px',
+    md: '960px',
+    sm: '740px',
+    xs: '600px'
+});
+
 const LandingPosterContainer = styled.header`
-    background: url(${props => props.poster});
+    background: url(${props => props.poster ? BASE_IMAGE_URL + props.poster : ''});
     background-size: cover;
     object-fit: contain;
     height: 448px;
@@ -56,16 +65,29 @@ const LandingPosterContainer = styled.header`
         font-size: 3rem;
         font-weight: 800;
         padding-bottom: 0.3rem;
+        ${customBreakpoint.lessThan('lg')`
+            font-size: 2.5rem;
+        `}
+        ${customBreakpoint.lessThan('md')`
+            font-size: 2rem;
+        `}
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 1.5rem;
+        `}
     }
     
     .landing-contents {
         margin-left: 30px;
         padding-top: 140px;
         height: 190px;
+        ${customBreakpoint.lessThan('md')`
+            padding-top: 150px;
+            width: 90%;
+            margin: 0 auto;
+        `}
     }
 
     .landing-desc {
-        width: 45rem;
         line-height: 1.3;
         padding-top: 1rem;
         font-size: 0.8rem;

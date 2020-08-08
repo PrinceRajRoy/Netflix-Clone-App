@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
 const baseAPI = axios.create({
-    baseURL: 'http://api.themoviedb.org/3'
+    baseURL: 'https://api.themoviedb.org/3'
 });
 
 export {

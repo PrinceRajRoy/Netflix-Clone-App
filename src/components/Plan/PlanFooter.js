@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Icon from 'react-icons-kit';
 import { iosWorld } from 'react-icons-kit/ionicons/iosWorld';
 import { arrowSortedDown } from 'react-icons-kit/typicons/arrowSortedDown';
+import { generateMedia } from 'styled-media-query';
 
 class PlanFooter extends Component {
     state = {
@@ -56,6 +57,12 @@ class PlanFooter extends Component {
 
 export default PlanFooter;
 
+const customBreakpoint = generateMedia({
+    md: '960px',
+    sm: '740px',
+    xs: '600px'
+});
+
 const PlanFooterContainer = styled.div`
     color: #757575;
     background: #f3f3f3;
@@ -80,6 +87,12 @@ const PlanFooterContainer = styled.div`
         grid-template-columns: repeat(4, 1fr);
         width: 75%;
         margin-top: 1rem;
+        ${customBreakpoint.lessThan('md')`
+            width: 100%;
+        `}
+        ${customBreakpoint.lessThan('xs')`
+            grid-template-columns: repeat(2, 1fr);
+        `}
     }
 
     ul {
@@ -90,7 +103,7 @@ const PlanFooterContainer = styled.div`
     
     .lang-toggle {
         position: absolute;
-        margin-top: -4rem;
+        margin-top: -3rem;
     }
 
     .lang-toggle ul {
@@ -104,6 +117,7 @@ const PlanFooterContainer = styled.div`
     .language-btn {
         position: relative;
         margin-bottom: 2rem;
+        margin-top: 1rem;
         border: 0.9px solid #a6a6a6;
         border-radius: 1px;
         background: #fff;

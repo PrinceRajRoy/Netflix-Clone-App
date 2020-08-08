@@ -11,6 +11,7 @@ class Browse extends Component {
     static contextType = BrowseContext;
 
     componentDidMount() {
+        window.scroll(0, 0);
         const getGenres = async () => {
             const result = await baseAPI.get(requests.getGenres);
             this.context.addGenres(result.data.genres);

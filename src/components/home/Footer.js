@@ -72,7 +72,8 @@ export default Footer;
 
 // Media Query
 const customBreakpoint = generateMedia({
-    md: '960px'
+    md: '960px',
+    sm: '800px'
 });
 
 const FooterContainer = styled.div`
@@ -81,9 +82,13 @@ const FooterContainer = styled.div`
     padding-bottom: 1rem;
     font-size: 0.9rem;
     color: #757575;
-        ${customBreakpoint.lessThan('md')`
-            padding-left: 10%;
-        `}
+    ${customBreakpoint.lessThan('md')`
+        padding-left: 10%;
+    `}
+    ${customBreakpoint.lessThan('sm')`
+        padding-left: 0%;
+        padding-top: 4rem;
+    `}
 
     ul {
         list-style-type: none;

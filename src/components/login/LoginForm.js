@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { generateMedia } from 'styled-media-query';
+import app from '../../utilities/firebase';
 
 const emailExp = RegExp(/^([a-zA-Z0-9_\-\\.]+)@([a-zA-Z0-9_\-\\.]+)\.([a-zA-Z]{2,5})$/);
 
@@ -12,6 +13,7 @@ class LoginForm extends Component {
         password: '',
         emailError: '',
         passError: '',
+        error: '',
         checkbox: true
     };
 
@@ -56,11 +58,18 @@ class LoginForm extends Component {
 
     }
 
-    handleSubmit = e => {
+    handleSubmit = async (e) => {
         e.preventDefault();
         const err = this.handleErrors();
+        this.setState({error: ''});
         if(!err) {
-            return;
+            try {
+                await app
+                .auth()
+                .signInWithEmailAndPassword(this.state.email, this.state.password);
+            } catch (err) {
+                this.setState({error: err.code + ' Email/Password Incorrect!'});
+            }
         }
     }
     
@@ -100,6 +109,9 @@ class LoginForm extends Component {
                                 {this.state.passError}
                             </span>
                         </div>
+                        <span style={{color: '#db7302'}}>
+                            {this.state.error}
+                        </span>
                         <div className="container">
                             <Button type='submit' onClick={this.handleSubmit}>Sign In</Button>
                         </div>
@@ -134,7 +146,8 @@ export default LoginForm;
 
 // Media Query
 const customBreakpoint = generateMedia({
-    sm: '740px'
+    sm: '740px',
+    xs: '600px'
 });
 
 const FormContainer = styled.div`
@@ -149,11 +162,11 @@ const FormContainer = styled.div`
     .login-form-container {
         background: rgba(0, 0, 0, 0.75);
         position: relative;
-        width: 28.125rem;
+        max-width: 28.125rem;
         height: 41.25rem;
         padding: 4rem;
         ${customBreakpoint.lessThan('sm')`
-            padding: 0.6rem;
+            padding: 2rem;
             height: 35rem;
         `}
     }
@@ -240,8 +253,8 @@ const FormContainer = styled.div`
         margin-left: 6.6rem;
         font-size: 0.9rem;
         text-decoration: none;
-        ${customBreakpoint.lessThan('sm')`
-            margin-left: 13rem;
+        ${customBreakpoint.lessThan('xs')`
+            margin-left: 2rem;
         `}
     }
 

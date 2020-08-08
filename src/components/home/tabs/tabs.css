@@ -97,3 +97,12 @@
         display: none;
     }
 }
+
+@media (max-width: 650px) {
+    .tab-list {
+        grid-gap: 0rem;
+    }
+    .tab-list > li {
+        padding: 0 10px;
+    }
+}

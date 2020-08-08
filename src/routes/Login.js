@@ -30,19 +30,25 @@ export default Login;
 
 // Media Query
 const customBreakpoint = generateMedia({
-    sm: '740px'
+    sm: '740px',
+    xs: '500px'
 });
 
 const Logo = styled.img`
-    width: 11rem;
+    width: 10rem;
     position: absolute;
     top: 25%;
-    left: 11%;
+    left: 110px;
     transform: translate(-50%, -50%);
     margin-left: 0;
     ${customBreakpoint.lessThan('sm')`
         top: 45%;
         left: 23%;
+    `}
+    ${customBreakpoint.lessThan('xs')`
+        top: 25%;
+        left: 75px;
+        height: 1.8rem;
     `}
 `;
 

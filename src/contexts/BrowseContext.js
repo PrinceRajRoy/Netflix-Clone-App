@@ -12,7 +12,7 @@ const BrowseContextProvider = (props) => {
     }
 
     return (
-        <BrowseContext.Provider value={{genres: genres, addGenres: addGenres}}>
+        <BrowseContext.Provider value={{genres, addGenres}}>
             {props.children}
         </BrowseContext.Provider>
     )
