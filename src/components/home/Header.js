@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import logo from '../../svg/logo.svg';
-import { NavLink, Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../Button';
 
 import { Icon } from 'react-icons-kit';
 import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_right'
 import { generateMedia } from 'styled-media-query';
+import { AuthContext } from '../../contexts/AuthContext';
+import app from '../../utilities/firebase';
+import logout from '../../utilities/logout';
 
 class Header extends Component {
+
+    static contextType = AuthContext;
+
     render() {
         return (
             <HeaderComponent className="Header">
@@ -16,14 +22,18 @@ class Header extends Component {
                     <Link to='/'>
                         <Logo src={logo} alt="logo" />
                     </Link>
-                    <NavLink to="/login" className="signIn-btn" >Sign In</NavLink>
+                    <NavLink className="signIn-btn"
+                        to={this.context.loggedUser ? '/' : 'login'}
+                        onClick={() => logout(app, this.context)}>
+                            {this.context.loggedUser ? 'Sign Out' : 'Sign In'}
+                    </NavLink>
                 </div>
                 <div className="header-content">
                     <MainTitle>See what's next.</MainTitle>
                     <MainSubtitle>WATCH ANYWHERE. CANCEL ANYTIME.</MainSubtitle>
-                    <Link to='/plan'>
+                    <Link to={this.context.loggedUser ? '/browse' : '/plan'}>
                         <Button className='try-it-now' primary>
-                            Try it Now
+                            {this.context.loggedUser ? 'Browse' : 'Try it Now'}
                             <Icon size={37} icon={ic_keyboard_arrow_right}/>
                         </Button>
                     </Link>

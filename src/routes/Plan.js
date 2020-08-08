@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import PlanFooter from'../components/Plan/PlanFooter';
 import { generateMedia } from 'styled-media-query';
+import { AuthContext } from '../contexts/AuthContext';
+import app from '../utilities/firebase';
+import logout from '../utilities/logout';
 
 class Plan extends Component {
+
+    static contextType = AuthContext;
 
     componentDidMount() {
         window.scroll(0, 0);
@@ -18,9 +23,11 @@ class Plan extends Component {
                     <Link to='/'>
                         <Logo src={require('../svg/logo.svg')} alt='logo' />
                     </Link>
-                    <NavLink to='/login' className='sign-in-btn'>
-                        Sign In
-                    </NavLink>
+                    <Link className="sign-in-btn"
+                        to={this.context.loggedUser ? '/' : 'login'}
+                        onClick={() => logout(app, this.context)}>
+                            {this.context.loggedUser ? 'Sign Out' : 'Sign In'}
+                    </Link>
                 </div>
                 <div className="body-content">
                     <img 
