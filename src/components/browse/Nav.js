@@ -6,11 +6,15 @@ import { search } from 'react-icons-kit/fa/search';
 import { bellO } from 'react-icons-kit/fa/bellO';
 import app from '../../utilities/firebase';
 import { generateMedia } from 'styled-media-query';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
+import logout from '../../utilities/logout';
 
 function Nav() {
 
     const [navToggle, setNavToggle] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
+    const context = useContext(AuthContext);
 
     useEffect(() => {
         const handler = window.addEventListener('scroll', () => {
@@ -26,16 +30,6 @@ function Nav() {
     }, []);
 
     const handleShowProfile = () => setShowProfile(!showProfile);
-
-    const logout = async () => {
-        try {
-            await app
-                .auth()
-                .signOut();
-        } catch (err) {
-            console.info(err);
-        }
-    }
 
     return (
         <NavContainer className='nav' navToggle={navToggle} showProfile={showProfile}>
@@ -69,7 +63,7 @@ function Nav() {
                 <li>Manage Profiles</li>
                 <li>Account</li>
                 <li>Help Center</li>
-                <li onClick={() => logout()}>Sign out of Netflix</li>
+                <li onClick={() => logout(app, context)}>Sign out of Netflix</li>
             </ul>
         </NavContainer>
     )
