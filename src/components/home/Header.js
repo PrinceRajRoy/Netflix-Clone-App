@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../svg/logo.svg';
-import { NavLink } from 'react-router-dom';
+import logo from '../../svg/logo.svg';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button } from '../components/Button';
+import { Button } from '../Button';
 
 import { Icon } from 'react-icons-kit';
 import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_right'
@@ -13,16 +13,20 @@ class Header extends Component {
         return (
             <HeaderComponent className="Header">
                 <div className="header-top">
-                    <Logo src={logo} alt="logo" />
-                    <NavLink to="/" className="signIn-btn" >Sign In</NavLink>
+                    <Link to='/'>
+                        <Logo src={logo} alt="logo" />
+                    </Link>
+                    <NavLink to="/login" className="signIn-btn" >Sign In</NavLink>
                 </div>
                 <div className="header-content">
                     <MainTitle>See what's next.</MainTitle>
                     <MainSubtitle>WATCH ANYWHERE. CANCEL ANYTIME.</MainSubtitle>
-                    <Button className='try-it-now' primary>
-                        Try it Now
-                        <Icon size={37} icon={ic_keyboard_arrow_right}/>
-                    </Button>
+                    <Link to='/plan'>
+                        <Button className='try-it-now' primary>
+                            Try it Now
+                            <Icon size={37} icon={ic_keyboard_arrow_right}/>
+                        </Button>
+                    </Link>
                 </div>
             </HeaderComponent>
         )
@@ -36,7 +40,8 @@ const customBreakpoint = generateMedia({
     xl: '1350px',
     lg: '1150px',
     md: '960px',
-    sm: '740px'
+    sm: '740px',
+    xs: '600px'
 });
 
 // Logo
@@ -49,6 +54,10 @@ const Logo = styled.img`
     transform: translate(-50%, -50%);
     ${customBreakpoint.lessThan('md')`
         left: 20%;
+    `}
+    ${customBreakpoint.lessThan('xs')`
+        height: 1.8rem;
+        left: 80px;
     `}
 `;
 
@@ -74,6 +83,9 @@ const HeaderComponent = styled.div`
         ${customBreakpoint.lessThan('md')`
             margin-top: 1.25rem;
             right: 5%;
+        `}
+        ${customBreakpoint.lessThan('xs')`
+            right: 20px;
         `}
     }
 
@@ -110,16 +122,16 @@ const HeaderComponent = styled.div`
     }
 
     .try-it-now {
+        margin: 0;
         ${customBreakpoint.lessThan('xl')`
-            margin: 0 33%;
             font-size: 1.5rem;
         `}
-        ${customBreakpoint.lessThan('lg')`
-            margin: 0 25%;
-        `}
         ${customBreakpoint.lessThan('md')`
-            margin: 0 20%;
             font-size: 1.3rem;
+        `}
+        ${customBreakpoint.lessThan('xs')`
+            font-size: 0.8rem;
+            padding: 1rem;
         `}
     }
 
@@ -133,6 +145,9 @@ const MainTitle = styled.h1`
     ${customBreakpoint.lessThan('md')`
         font-size: 2.6rem;
     `}
+    ${customBreakpoint.lessThan('xs')`
+        font-size: 1.6rem;
+    `}
 `;
 
 const MainSubtitle = styled.h2`
@@ -143,5 +158,8 @@ const MainSubtitle = styled.h2`
     text-transform: uppercase;
     ${customBreakpoint.lessThan('md')`
         font-size: 1.4rem;
+    `}
+    ${customBreakpoint.lessThan('xs')`
+        font-size: 1rem;
     `}
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../Button';
+import { Button } from '../../../Button';
 import {cross} from 'react-icons-kit/icomoon/cross';
 import {checkmark} from 'react-icons-kit/icomoon/checkmark';
 import Icon from 'react-icons-kit';
@@ -78,7 +78,8 @@ export default function TabPricesPanel() {
 // Media Query
 const customBreakpoint = generateMedia({
     xl: '1350px',
-    md: '960px'
+    md: '960px',
+    sm: '800px'
 });
 
 const TabContentContainer = styled.div`
@@ -93,16 +94,19 @@ const TabContentContainer = styled.div`
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         padding: 3rem 0 0;
+        font-size: 1.5rem;
         ${customBreakpoint.lessThan('md')`
             grid-template-columns: 1fr;
             text-align: center;
             row-gap: 1.5rem;
         `}
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 1rem;
+        `}
     }
 
     span {
         grid-column: 3 / 9;
-        font-size: 1.5rem;
         ${customBreakpoint.lessThan('md')`
             grid-column: 1 / -1;
         `}
@@ -116,16 +120,26 @@ const TabContentContainer = styled.div`
             grid-column: 1 / -1;
             margin: 0 30%;
         `}
+        ${customBreakpoint.lessThan('sm')`
+            margin: 0 23%;
+        `}
     }
 
     .tab-bottom-content {
         margin: 2rem auto;
+        ${customBreakpoint.lessThan('sm')`
+            overflow: auto
+        `}
     }
 
     table {
         width: 100%;
         margin-top: 2rem;
         border-collapse: collapse;
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 0.8rem;
+            overflow-x: scroll;
+        `}
     }
 
     table thead th {

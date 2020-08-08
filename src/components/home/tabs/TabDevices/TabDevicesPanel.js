@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../Button'
+import { Button } from '../../../Button'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query';
 
@@ -13,17 +13,17 @@ export default function TabDevicesPanel() {
                 </div>
                 <div className="tab-bottom-content">
                     <div>
-                        <img src={require('../../../images/tab-tv.png')} alt={'Watch On Television'} style={{width: '18.75rem'}}/>
+                        <img src={require('../../../../images/tab-tv.png')} alt={'Watch On Television'}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>
                     <div>
-                        <img src={require('../../../images/tab-tablet.png')} alt={'Watch On Tablet'} style={{width: '18.75rem', paddingTop: '0.625rem'}}/>
+                        <img src={require('../../../../images/tab-tablet.png')} alt={'Watch On Tablet'} style={{paddingTop: '0.625rem'}}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>
                     <div>
-                        <img src={require('../../../images/tab-macbook.png')} alt={'Watch On Mac'} style={{width: '18.75rem', paddingTop: '0.625rem', paddingBottom: '0.625rem'}}/>
+                        <img src={require('../../../../images/tab-macbook.png')} alt={'Watch On Mac'} style={{paddingTop: '0.625rem', paddingBottom: '0.625rem'}}/>
                         <h3>Watch on your TV</h3>
                         <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                     </div>
@@ -36,7 +36,8 @@ export default function TabDevicesPanel() {
 // Media Query
 const customBreakpoint = generateMedia({
     xl: '1350px',
-    md: '960px'
+    md: '960px',
+    sm: '800px'
 });
 
 const TabContentContainer = styled.div`
@@ -52,16 +53,19 @@ const TabContentContainer = styled.div`
         justify-content: center;
         align-items: center;
         padding: 2.5rem 0;
+        font-size: 1.5rem;
         ${customBreakpoint.lessThan('md')`
             grid-template-columns: 1fr;
             text-align: center;
             row-gap: 1.5rem;
         `}
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 1rem;
+        `}
     }
 
     span {
         grid-column: 2 / 9;
-        font-size: 1.5rem;
         ${customBreakpoint.lessThan('md')`
             grid-column: 1 / -1;
         `}
@@ -74,6 +78,9 @@ const TabContentContainer = styled.div`
             grid-column: 1 / -1;
             margin: 0 30%;
         `}
+        ${customBreakpoint.lessThan('sm')`
+            margin: 0 23%;
+        `}
     }
 
     .tab-bottom-content {
@@ -85,6 +92,16 @@ const TabContentContainer = styled.div`
         ${customBreakpoint.lessThan('md')`
             grid-template-columns: 1fr;
         `}
+        ${customBreakpoint.lessThan('sm')`
+            grid-gap: 1rem;
+            transform: translateX(-6px);
+        `}
+        img {
+            width: '18.75rem';
+            ${customBreakpoint.lessThan('sm')`
+                width: 15rem;
+            `}
+        }
     }
 
     h3 {

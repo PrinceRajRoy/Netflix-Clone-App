@@ -6,7 +6,7 @@ import { iosWorld } from 'react-icons-kit/ionicons/iosWorld';
 import { arrowSortedDown } from 'react-icons-kit/typicons/arrowSortedDown';
 import { generateMedia } from 'styled-media-query';
 
-class Footer extends Component {
+class LoginFooter extends Component {
     state = {
         showLang: false
     };
@@ -16,32 +16,16 @@ class Footer extends Component {
     render() {
         return (
             <FooterContainer>
-                <span style={{marginLeft: '15%', fontSize: '1.125rem'}}>Questions? Call <Link>1-877-742-1335</Link></span>
+                <span style={{marginLeft: '15%'}}>Questions? Call <Link to={'tel:000-800-040-1843'}>000-800-040-1843</Link></span>
                 <div className='footer-content'>
                     <ul>
-                        <li><Link>FAQ</Link></li>
-                        <li><Link>Investor Relations</Link></li>
-                        <li><Link>Ways to Watch</Link></li>
-                        <li><Link>Corporate Information</Link></li>
-                        <li><Link>Netflix Originals</Link></li>
+                        <li><Link to='/'>Gift Card Terms</Link></li>
                     </ul>
                     <ul>
-                        <li><Link>Help Center</Link></li>
-                        <li><Link>Jobs</Link></li>
-                        <li><Link>Terms of Use</Link></li>
-                        <li><Link>Contact Us</Link></li>
+                        <li><Link to='/'>Terms Of Use</Link></li>
                     </ul>
                     <ul>
-                        <li><Link>Account</Link></li>
-                        <li><Link>Redeem Gift Card</Link></li>
-                        <li><Link>Speed Test</Link></li>
-                        <li><Link>Privacy</Link></li>
-                    </ul>
-                    <ul>
-                        <li><Link>Media Center</Link></li>
-                        <li><Link>Buy Gift Card</Link></li>
-                        <li><Link>Cookie Preferences</Link></li>
-                        <li><Link>Legal Notices</Link></li>
+                        <li><Link to='/'>Privacy Statement</Link></li>
                     </ul>
                 </div>
                 {this.state.showLang && (
@@ -59,27 +43,31 @@ class Footer extends Component {
                     <span style={{paddingTop: '1px'}}>English</span>
                     <Icon icon={arrowSortedDown}></Icon>
                 </div>
-                <span style={{marginLeft: '15%', fontSize: '0.9rem'}}>Netflix India</span>
             </FooterContainer>
         )
     }
 }
 
-export default Footer;
+export default LoginFooter;
 
 // Media Query
 const customBreakpoint = generateMedia({
-    md: '960px'
+    md: '960px',
+    sm: '740px'
 });
 
 const FooterContainer = styled.div`
-    background: var(--main-deep-dark);
-    padding-top: 10rem;
-    padding-bottom: 1rem;
-    color: var(--main-grey);
-        ${customBreakpoint.lessThan('md')`
-            padding-left: 10%;
-        `}
+    background: rgba(0, 0, 0, 0.75);
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    margin-top: 6rem;
+    font-size: 0.9rem;
+    color: #757575;
+    z-index: 1;
+    position: relative;
+    ${customBreakpoint.lessThan('sm')`
+        margin-top: 0;
+    `}
 
     ul {
         list-style-type: none;
@@ -92,7 +80,6 @@ const FooterContainer = styled.div`
     .footer-content {
         width: 70%;
         margin: 1rem auto 0;
-        font-size: 0.9rem;
         overflow: auto;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -102,7 +89,7 @@ const FooterContainer = styled.div`
     }
     
     a {
-        color: var(--main-grey);
+        color: #757575;
         &:hover {
             text-decoration: underline;
         }
@@ -123,7 +110,7 @@ const FooterContainer = styled.div`
     .lang-toggle {
         margin-left: 15%;
         position: absolute;
-        margin-top: -4.125rem;
+        margin-top: -3.7rem;
     }
 
     .lang-toggle ul {

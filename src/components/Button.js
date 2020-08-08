@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { generateMedia } from 'styled-media-query';
+
+const customBreakpoint = generateMedia({
+    sm: '650px'
+});
 
 export const Button = styled.button`
     display: inline-block;
@@ -18,5 +23,7 @@ export const Button = styled.button`
     &:hover {
         background: var(--main-hover-red);
     }
-
+    ${customBreakpoint.lessThan('sm')`
+        font-size: 0.8rem;
+    `}
 `;

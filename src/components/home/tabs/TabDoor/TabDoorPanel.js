@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../Button';
+import { Button } from '../../../Button';
 import { generateMedia } from 'styled-media-query';
 
 export default function TabDoorPanel() {
@@ -12,7 +12,7 @@ export default function TabDoorPanel() {
                         <span>If you decide Netflix isn't for you - no problem. No commitment. Cancel online anytime.</span><br/>
                         <Button style={{marginTop: '2rem'}}>try it now</Button>
                     </div>
-                    <img src={require('../../../images/tab-1-pic.png')} alt={"Tab Door Panel"} />
+                    <img src={require('../../../../images/tab-1-pic.png')} alt={"Tab Door Panel"} />
                 </div>
             </div>
         </TabContentContainer>
@@ -22,7 +22,8 @@ export default function TabDoorPanel() {
 // Media Query
 const customBreakpoint = generateMedia({
     xl: '1350px',
-    md: '960px'
+    md: '960px',
+    sm: '650px'
 });
 
 
@@ -30,7 +31,7 @@ const TabContentContainer = styled.div`
     background: var(--main-deep-dark);
 
     img {
-        width: 31.875rem;
+        width: 80%;
     }
 
     .para-text {
@@ -56,6 +57,9 @@ const TabContentContainer = styled.div`
             img { 
                 margin: auto;
             }
+        `}
+        ${customBreakpoint.lessThan('sm')`
+            font-size: 1rem;
         `}
     }
 `;
