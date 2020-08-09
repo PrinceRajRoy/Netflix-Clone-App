@@ -1,4 +1,4 @@
-const API_KEY = 'c1a3c986c82c4b63abb9642b94ca8290';
+const API_KEY = process.env.REACT_APP_tmdbAPIKey;
 
 /* EXAMPLE API */
 /* https://api.themoviedb.org/3/movie/550?api_key=c1a3c986c82c4b63abb9642b94ca8290 */
