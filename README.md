@@ -1,3 +1,5 @@
+`A ReactJS App that uses the popular 'The Movie Database' (TMDb) API's which provides the ongoing popular TV Series and Movies listing and presents to the user in the same visual way as Netflix`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
